@@ -1,0 +1,120 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// vector<string> split(string input, string delimiter)
+// {
+//    vector<string> ret;
+//    long long pos = 0;
+//    string token = "";
+//    // string.find : delimiter가 있는 첫 번째 인덱스를 반환
+//    // string::find는 찾는 문자가 없는 경우 string::npos를 반환함(-1)
+//    // 즉, 더 이상 찾는 값이 없을때 while문 탈출.
+//    while ((pos = input.find(delimiter)) != string::npos)
+//    {
+//       token = input.substr(0, pos); // 0 ~ find로 찾은 인덱스까지 문자열 반환
+//       ret.push_back(token);
+//       input.erase(0, pos + delimiter.length());   //input
+//    }
+//    ret.push_back(input);
+//    return ret;
+// }
+
+// 배열 초기화
+void Init_Array(int *time, uint *array)
+{
+   for(int i = 0; i < 100; i++)
+    {
+      if((i >= (time[0])) & (i <= (time[1] - 1)))
+      {
+         array[i] = 1;
+      }
+      else
+      array[i] = 0;
+    }
+}
+
+
+int main()
+{
+    int price[3], time_A[2], time_B[2], time_C[3];
+    uint Array_A[100], Array_B[100], Array_C[100];
+    uint pay = 0;
+
+    //A, B, C 가격 입력
+    //cout << "A, B, C의 가격을 공백 포함하여 입력해주세요." << endl;
+    cin >> price[0];
+    cin >> price[1];
+    cin >> price[2];
+
+    //cout << price[0] << price[1] << price[2] << endl;
+    // 트럭 A의 입차 시간 
+    //cout << "트럭 A의 입차, 출차 시간을 적어주세요." << endl;
+    cin >> time_A[0];
+    cin >> time_A[1];
+
+    //cout << time_A[0] << time_A[1] << endl;
+    // 트럭 B의 입차 시간
+    //cout << "트럭 B의 입차, 출차 시간을 적어주세요." << endl;
+    cin >> time_B[0];
+    cin >> time_B[1];
+
+    //cout << time_B[0] << time_B[1] << endl;
+    // 트럭 C의 입차 시간
+    //cout << "트럭 C의 입차, 출차 시간을 적어주세요." << endl;
+    cin >> time_C[0];
+    cin >> time_C[1];
+
+    Init_Array(time_A, Array_A);
+
+    Init_Array(time_B, Array_B);
+
+    Init_Array(time_C, Array_C);
+
+  //  for (int i = 0; i < 100; i++)
+  //  {
+  //   cout << Array_A[i] << endl;
+  //  }
+    //arr = str.split(" ");
+    
+    for(int i = 0; i < 100; i++)
+    {
+      int total_Arr = 0;
+      total_Arr = Array_A[i] + Array_B[i] + Array_C[i];
+      //cout << total_Arr << endl;
+      if (total_Arr == 0)
+      {
+        pay += 0;
+      }
+      else if (total_Arr == 1)
+      {
+        pay += price[0];
+      }
+      else if (total_Arr == 2)
+      {
+        pay += price[1] * 2;
+      }
+      else if (total_Arr == 3)
+      {
+        pay += price[2] * 3;
+      }
+      // 5 8 9 10 11 14 19 24 
+      // switch(total_Arr)
+      // {
+      //   case 0:
+      //   pay += 0;
+      //   break;
+      //   case 1:
+      //   pay += price[0];
+      //   break;
+      //   case 2:
+      //   pay += price[1];
+      //   break;
+      //   case 3:
+      //   pay += price[2];
+      //   break;
+      // }
+    }
+    cout << pay;
+    return 0;
+}
