@@ -1,0 +1,114 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string Seq;
+int Alpha[26] = { 0 };
+
+void Dev_Seq(char str)
+{
+	switch (str)
+	{
+	case 'a':
+		Alpha[0] += 1;
+		break;
+	case 'b':
+		Alpha[1] += 1;
+		break;
+	case 'c':
+		Alpha[2] += 1;
+		break;
+	case 'd':
+		Alpha[3] += 1;
+		break;
+	case 'e':
+		Alpha[4] += 1;
+		break;
+	case 'f':
+		Alpha[5] += 1;
+		break;
+	case 'g':
+		Alpha[6] += 1;
+		break;
+	case 'h':
+		Alpha[7] += 1;
+		break;
+	case 'i':
+		Alpha[8] += 1;
+		break;
+	case 'j':
+		Alpha[9] += 1;
+		break;
+	case 'k':
+		Alpha[10] += 1;
+		break;
+	case 'l':
+		Alpha[11] += 1;
+		break;
+	case 'm':
+		Alpha[12] += 1;
+		break;
+	case 'n':
+		Alpha[13] += 1;
+		break;
+	case 'o':
+		Alpha[14] += 1;
+		break;
+	case 'p':
+		Alpha[15] += 1;
+		break;
+	case 'q':
+		Alpha[16] += 1;
+		break;
+	case 'r':
+		Alpha[17] += 1;
+		break;
+	case 's':
+		Alpha[18] += 1;
+		break;
+	case 't':
+		Alpha[19] += 1;
+		break;
+	case 'u':
+		Alpha[20] += 1;
+		break;
+	case 'v':
+		Alpha[21] += 1;
+		break;
+	case 'w':
+		Alpha[22] += 1;
+		break;
+	case 'x':
+		Alpha[23] += 1;
+		break;
+	case 'y':
+		Alpha[24] += 1;
+		break;
+	case 'z':
+		Alpha[25] += 1;
+		break;
+	}
+}
+
+
+int main()
+{
+	string str;
+	getline(cin, str);
+	for (char i : str)
+	{
+		Dev_Seq(i);
+	}
+
+	for (int j : Alpha)
+	{
+		cout << j << " ";
+	}
+	/*cout << Alpha[0] << Alpha[1] << Alpha[2] << Alpha[3] << Alpha[4] << Alpha[5] << Alpha[6] << Alpha[7]
+		<< Alpha[8] << Alpha[9] << Alpha[10] << Alpha[11] << Alpha[12] << Alpha[13] << Alpha[14]
+		<< Alpha[15] << Alpha[16] << Alpha[17] << Alpha[18] << Alpha[19] << Alpha[20] << Alpha[21]
+		<< Alpha[22] << Alpha[23] << Alpha[24] << Alpha[25];*/
+
+	return 0;
+}
