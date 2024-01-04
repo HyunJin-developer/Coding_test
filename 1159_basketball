@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+	int Num_Ath;
+	string TempStr;
+	cin >> Num_Ath;
+
+	vector<string> Name_Ath;
+
+	for (int i = 0; i < Num_Ath; i++)
+	{
+		cin >> TempStr;
+		Name_Ath.push_back(TempStr);
+		TempStr = "";
+	}
+	//cout << " " << endl;
+	//cout << "--------------" << endl;
+	//for (string i : Name_Ath)
+	//{
+	//	cout << int(i[0] - 'a') << endl;	// Name_Ath 벡터의 각 인덱스에서 첫 번째 문자만 가져옴.
+	//}
+
+	int cnt = 0;
+	int NumResult = 0;
+	for (int i = 0; i < 26; i++)
+	{
+		for (int j = 0; j < Num_Ath; j++)
+		{
+			if (Name_Ath[j][0] - 'a' == i)
+			{
+				cnt++;
+			}
+		}
+		if (cnt >= 5)
+		{
+			cout << char(i + 'a');
+			NumResult++;
+		}
+		cnt = 0;
+	}
+	if (NumResult == 0)
+	{
+		cout << "PREDAJA";
+	}
+
+}
