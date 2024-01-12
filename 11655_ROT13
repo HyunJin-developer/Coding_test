@@ -1,0 +1,42 @@
+#include <iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+	string sInput, sOutput;
+	getline(cin, sInput);
+
+	//cout << sInput.length();
+
+	for (int i=0; i < sInput.length(); i++)
+	{
+		if (sInput[i] != ' ' &&  ((sInput[i] >= 'a' && sInput[i] <= 'z') || (sInput[i] >= 'A' && sInput[i] <= 'Z')))
+		{
+			//sOutput = sInput[i] + 13
+			if (int(sInput[i]) + 13 > 'z')
+			{
+				//sOutput[i] = 'a' + (12 - ('z' - sInput[i]));
+				sOutput.push_back('a' + (12 - ('z' - sInput[i])));
+			}
+			else if ((int(sInput[i])+13 > 'Z') && (int(sInput[i])+13 < 'Z'+14))
+			{
+				//sOutput[i] = 'A' + (12 - ('Z' - sInput[i]));
+				sOutput.push_back('A' + (12 - ('Z' - sInput[i])));
+			}
+			else
+			{
+				sOutput.push_back(sInput[i] + 13);
+			}
+		}
+		else
+		{
+			//sOutput[i] = sInput[i];
+			sOutput.push_back(sInput[i]);
+		}
+	}
+
+	cout << sOutput;
+	return 0;
+}
