@@ -1,0 +1,52 @@
+/*
+ 9996 When i miss Korea, i connect to the server.
+*/
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int N = 0;
+    string str_Pattern = "";
+    string str_Temp = "";
+    vector<string> vStr;
+
+    cin >> N;
+    cin >> str_Pattern;
+
+    int nDelimeter = str_Pattern.find('*');
+
+    string str_prefix = str_Pattern.substr(0, nDelimeter);
+    string str_suffix = str_Pattern.substr(nDelimeter + 1);
+    
+    // cout << str_prefix << endl;
+    // cout << str_suffix << endl;
+    
+    for (int i = 0; i < N; i++)
+    {
+        cin >> str_Temp;
+        vStr.push_back(str_Temp);
+        str_Temp = "";
+    }
+    for (int i = 0; i < N; i++)
+    {
+        if (vStr[i].size() >= str_prefix.size() + str_suffix.size())
+        {
+            if( str_suffix == vStr[i].substr(vStr[i].size() - str_suffix.size(), vStr[i].size()))
+            {
+                if(str_prefix == vStr[i].substr(0, str_prefix.size()))
+                {
+                    cout << "DA" << endl;
+                }
+                else
+                cout << "NE" << endl;
+            }
+            else
+            cout << "NE" << endl;
+        }
+        else
+            cout << "NE" << endl;
+        
+    }
+}
